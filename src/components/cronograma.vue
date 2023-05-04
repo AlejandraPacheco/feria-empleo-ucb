@@ -1,9 +1,10 @@
 <template>
   <div>
-    <div v-for="(reunion, index) in reuniones" :key="index">
+    <div v-for="(reunion, index) in reuniones" :key="index" class="card">
       <div>{{ reunion.nombre }}</div>
       <div>{{ reunion.cantidad_personas }} personas</div>
       <div>{{ reunion.descripcion }}</div>
+      <div>Fecha: {{ reunion.fecha }}</div>
       <div><a :href="reunion.link">Ir a la reunión</a></div>
     </div>
   </div>
@@ -18,12 +19,14 @@ export default {
           nombre: 'Reunión de equipo',
           cantidad_personas: 10,
           descripcion: 'Reunión semanal para revisar el avance de materias.',
+          fecha: '13/06/2023',
           link: 'https://meet.google.com/xyz-abc',
         },
         {
           nombre: 'Reunión con estudiantes',
           cantidad_personas: 5,
           descripcion: 'Presentación del nuevo grupo a la carrera.',
+          fecha: '23/06/2023',
           link: 'https://meet.google.com/123-def',
         },
         //Estos son ejemplos de las reuniones
