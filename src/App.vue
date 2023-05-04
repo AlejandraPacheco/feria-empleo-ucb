@@ -4,15 +4,19 @@
     <!-- Navigation -->
     <nav class="navbar shadow bg-white rounded justify-content-between flex-nowrap flex-row fixed-top">
       <div class="container">
-        <a class="navbar-brand float-left" href="https://www.positronx.io" target="_blank">
-           positronX.io
-        </a>
+        <img src="https://lpz.ucb.edu.bo/wp-content/uploads/2021/10/Feria-de-empleo-final.jpg" width="140px">
         <ul class="nav navbar-nav flex-row float-right">
           <li class="nav-item">
-            <router-link class="nav-link pr-3" to="/login">Sign in</router-link>
+            <router-link class="nav-link pr-3" to="/">Instituciones</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="btn btn-outline-primary" to="/">Sign up</router-link>
+            <router-link class="btn btn-outline-primary" to="/cronograma">Cronograma</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="btn btn-outline-primary" to="/contacto">Contactos</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link pr-3" to="/login">Log In</router-link>
           </li>
         </ul>
       </div>
