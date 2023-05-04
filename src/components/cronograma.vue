@@ -10,26 +10,29 @@
 </template>
 
 <script>
-data() {
-  return {
-    reuniones: [
-      {
-        nombre: 'Reunión de equipo',
-        cantidad_personas: 10,
-        descripcion: 'Reunión semanal para revisar el avance de materias.',
-        link: 'https://meet.google.com/xyz-abc'
-      },
-      {
-        nombre: 'Reunión con estudiantes',
-        cantidad_personas: 5,
-        descripcion: 'Presentación del nuevo grupo a la carrera.',
-        link: 'https://meet.google.com/123-def'
-      },
-      //Estos son ejemplos de las reuniones
-    ]
-  }
-}
+export default {
+  data() {
+    return {
+      reuniones: [
+        {
+          nombre: 'Reunión de equipo',
+          cantidad_personas: 10,
+          descripcion: 'Reunión semanal para revisar el avance de materias.',
+          link: 'https://meet.google.com/xyz-abc',
+        },
+        {
+          nombre: 'Reunión con estudiantes',
+          cantidad_personas: 5,
+          descripcion: 'Presentación del nuevo grupo a la carrera.',
+          link: 'https://meet.google.com/123-def',
+        },
+        //Estos son ejemplos de las reuniones
+      ],
+    };
+  },
+};
 </script>
+
 <style scoped>
     .card {
     border: 1px solid #ccc;
