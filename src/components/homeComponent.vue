@@ -1,5 +1,6 @@
 <template>
     <div>
+      <center>
       <div class="contenedor-pasteles">
         <h1 class="titulo-productos">ALGUNOS DE NUESTROS PRODUCTOS</h1>
         <div class="fila">
@@ -26,7 +27,9 @@
           </div>
         </div>
       </div>
+    </center>
     </div>
+    
   </template>
 
   <script>
