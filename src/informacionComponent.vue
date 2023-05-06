@@ -1,5 +1,6 @@
 <template>
   <div>
+    <center>
     <h1>Contacto</h1>
     <p>Para contactarnos, por favor utilice la siguiente información:</p>
     <div>
@@ -24,6 +25,7 @@
       </div>
       <button type="submit">Enviar</button>
     </form>
+  </center>
   </div>
 </template>
 
