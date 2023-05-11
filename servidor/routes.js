@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const db = require('./bdd');
 
 // Definir la ruta /api/mensaje
 router.get('/api/mensaje', (req, res) => {
@@ -8,15 +9,17 @@ router.get('/api/mensaje', (req, res) => {
     res.send(mensaje);
   });
 
-  router.get('/api/data', (req, res) => {
-    const query = 'SELECT * FROM empresa';
-    db.query(query, (error, results) => {
+
+  router.get('/api/institucion', (req, res) => {
+    db.query('SELECT * FROM empresa', (error, results, fields) => {
       if (error) {
-        res.status(500).send({ error });
-      } else {
-        res.send(results);
+        console.log(error)
+        return res.status(500).send(error)
       }
-    });
-  });
+      res.header('Access-Control-Allow-Origin', '*');
+      res.send(results)
+    })
+  })
+  
 
 module.exports = router;

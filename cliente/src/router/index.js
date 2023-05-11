@@ -12,6 +12,11 @@ Vue.use(VueRouter)
       name: 'home',
       component: () => import('../components/homeComponent.vue')
     },
+    {
+      path: '/institucion',
+      name: 'institucion',
+      component: () => import('../components/newInstitucion.vue')
+    },
   {
     path: '/cronograma',
     name: 'cronograma',
