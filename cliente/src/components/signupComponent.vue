@@ -1,7 +1,7 @@
 <template>
     <div class="vue-tempalte">
         <form>
-            <h3>Sign Up</h3>
+            <h3 class="display-4 text-primary font-weight-bold">Sign Up</h3>
             <div class="form-group">
                 <label>Full Name</label>
                 <input type="text" class="form-control form-control-lg"/>
