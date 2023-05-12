@@ -3,7 +3,7 @@
     <div>
       <center>
       <div class="contenedor-pasteles">
-        <h1 class="titulo-productos">ALGUNOS DE NUESTROS PRODUCTOS</h1>
+        <h1 class="titulo-productos">INSTITUCIONES</h1>
 
         <!-- <div>
           <b-card
@@ -23,7 +23,31 @@
           </b-card>
         </div> -->
 
-        <div class="row d-flex flex-wrap justify-content-between mx-5">
+        <div class="row">
+          <div class="col-md-6" v-for="(institucion, index) in institucion" :key="index">
+            <b-card>
+              <b-card-title>{{ institucion.nombre }}</b-card-title>
+              <b-card-sub-title class="mb-2">{{ institucion.ubicacion }}</b-card-sub-title>
+              <b-row no-gutters>
+                <b-col>
+                  <b-card-img :src="institucion.logo" alt="Image" class="rounded-0"></b-card-img>
+                </b-col>
+                <b-col>
+                  <b-card-body>
+                    <b-card-text>
+                      {{ institucion.descripcion }}
+                    </b-card-text>
+                    <b-button href="#" variant="primary">Go somewhere</b-button>
+                  </b-card-body>
+                </b-col>
+              </b-row>
+            </b-card>
+          </div>
+        </div>
+
+
+
+        <!-- <div class="row d-flex flex-wrap justify-content-between mx-5">
           <b-card v-for="(institucion, index) in institucion" :key="index" no-body class="col-sm-6 mb-3 mx-5 overflow-hidden" style="max-width: 540px;">
             <b-card-title>{{ institucion.nombre }}</b-card-title>
             <b-card-sub-title class="mb-2">{{ institucion.ubicacion }}</b-card-sub-title>
@@ -45,7 +69,7 @@
 
         <div class="fixed-bottom d-flex justify-content-end mr-3 mb-3">
           <b-button pill variant="info" class="ml-auto" to="/institucion" @click="navigateTo">Button</b-button>
-        </div>
+        </div> -->
 
 
 
@@ -74,6 +98,13 @@
     </div>
     
   </template>
+
+  <style>
+  .card-custom {
+    max-width: 540px;
+    margin: 0 10px;
+  }
+  </style>
 
   <script>
   import axios from 'axios';
