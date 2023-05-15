@@ -17,21 +17,26 @@ Vue.use(VueRouter)
       name: 'institucion',
       component: () => import('../components/newInstitucion.vue')
     },
-  {
-    path: '/cronograma',
-    name: 'cronograma',
-    component: () => import('../components/cronograma2Component.vue')
-  },
-  {
-    path: '/contacto',
-    name: 'contacto',
-    component: () => import('../informacionComponent.vue')
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: () => import('../components/loginComponent.vue')
-  },
+    {
+      path: '/reunion',
+      name: 'reunion',
+      component: () => import('../components/newReunion.vue')
+    },
+    {
+      path: '/cronograma',
+      name: 'cronograma',
+      component: () => import('../components/cronograma2Component.vue')
+    },
+    {
+      path: '/contacto',
+      name: 'contacto',
+      component: () => import('../informacionComponent.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../components/loginComponent.vue')
+    },
 ]
 const router = new VueRouter({
   mode: 'history',

@@ -6,9 +6,24 @@
 
                 <div>
                     <div v-for="reunion in reunion" :key="reunion.id">
-                        <b-card bg-variant="dark" text-variant="white" :title="reunion.titulo" style="margin: 0 100px;">
+                        <b-card bg-variant="dark" text-variant="white" :title="'Reunion - ' + reunion.id" style="margin: 0 100px;">
                         <b-card-text class="text-left" style="margin-left: 40px;">
-                            {{ reunion.descripcion }}
+                            Titulo: {{ reunion.titulo }}
+                        </b-card-text>
+                        <b-card-text class="text-left" style="margin-left: 40px;">
+                            Descripcion: {{ reunion.descripcion }}
+                        </b-card-text>
+                        <b-card-text class="text-left" style="margin-left: 40px;">
+                            Organizado por: {{ reunion.nombre_institucion }}
+                        </b-card-text>
+                        <b-card-text class="text-left" style="margin-left: 40px;">
+                            Fecha: {{ reunion.fecha }}
+                        </b-card-text>
+                        <b-card-text class="text-left" style="margin-left: 40px;">
+                            Hora: {{ reunion.hora }}
+                        </b-card-text>
+                        <b-card-text class="text-left" style="margin-left: 40px;">
+                            Cupos Disponibles: {{ reunion.cant_personas }}
                         </b-card-text>
                         <div class="d-flex justify-content-end">
                             <b-button href="#" variant="primary">Editar reunion</b-button>
@@ -63,7 +78,7 @@
             </div> -->
 
             <div class="fixed-bottom d-flex justify-content-end mr-3 mb-3">
-            <b-button pill variant="info" class="ml-auto" to="/institucion" @click="navigateTo">Crear Nuevo</b-button>
+            <b-button pill variant="info" class="ml-auto" to="/reunion" @click="navigateTo">Crear Nuevo</b-button>
             </div>
 
         </div>
@@ -120,7 +135,7 @@
 
     methods: {
       navigateTo() {
-        this.$router.push('/institucion');
+        this.$router.push('/reunion');
       }
     },
 

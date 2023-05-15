@@ -36,7 +36,7 @@ const db = require('./bdd');
     });
 
     router.get('/api/reunion', (req, res) => {
-      db.query('SELECT * FROM reunion', (error, results, fields) => {
+      db.query('SELECT r.id, r.titulo, r.descripcion, r.fecha, r.hora, r.cant_personas, e.nombre as nombre_institucion FROM reunion r INNER JOIN empresa e ON r.empresa_id = e.id;', (error, results, fields) => {
         if (error) {
           console.log(error)
           return res.status(500).send(error)
@@ -56,5 +56,27 @@ const db = require('./bdd');
         res.send(results)
       })
     })
+
+    router.get('/api/instituciones', (req, res) => {
+      db.query('SELECT id, nombre FROM empresa', (error, results, fields) => {
+        if (error) {
+          console.log(error)
+          return res.status(500).send(error)
+        }
+        res.header('Access-Control-Allow-Origin', '*');
+        res.send(results)
+      })
+    })
+
+/*     router.get('/api/nombreinstitucion', (req, res) => {
+      db.query('SELECT a.nombre FROM empresa a, reunion b WHERE a.id=b.empresa_id', (error, results, fields) => {
+        if (error) {
+          console.log(error)
+          return res.status(500).send(error)
+        }
+        res.header('Access-Control-Allow-Origin', '*');
+        res.send(results)
+      })
+    }) */
 
 module.exports = router;
