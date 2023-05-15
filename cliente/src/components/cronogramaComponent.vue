@@ -25,6 +25,9 @@
           <a :href="reunion.link">Ir a la Reunión</a>
         </div>
       </div>
+      <div class="fixed-bottom d-flex justify-content-end mr-3 mb-3">
+          <b-button pill variant="info" class="ml-auto" to="/cronograma" @click="navigateTo">Crear Nuevo</b-button>
+        </div>
     </div>
   </template>
   
