@@ -1,27 +1,32 @@
 <template>
-    <b-container fluid>
-      <b-row>
-        <b-col cols="12" sm="6">
-          <b-form-group label="Nombre">
-            <b-form-input v-model="nombre" required></b-form-input>
-          </b-form-group>
-          <b-form-group label="Descripción">
-            <b-form-textarea v-model="descripcion" rows="3" required></b-form-textarea>
-          </b-form-group>
-          <b-form-group label="Ubicacion">
-            <b-form-input v-model="ubicacion" required></b-form-input>
-          </b-form-group>
-          <b-form-group label="foto">
-            <b-form-input v-model="foto" required></b-form-input>
-          </b-form-group>
-          <b-form-group label="Categoría">
-            <b-form-select v-model="categoria" :options="categorias"></b-form-select>
-          </b-form-group>
-          <b-button variant="primary" @click="submitForm">Enviar</b-button>
-        </b-col>
-      </b-row>
-    </b-container>
-  </template>
+    <div>
+     <div>
+      <h1>Registrar Institución</h1>
+     </div> 
+      <b-container fluid>
+        <b-row>
+          <b-col cols="12" sm="6">
+            <b-form-group label="Nombre">
+              <b-form-input v-model="nombre" required></b-form-input>
+            </b-form-group>
+            <b-form-group label="Descripción">
+              <b-form-textarea v-model="descripcion" rows="3" required></b-form-textarea>
+            </b-form-group>
+            <b-form-group label="Ubicacion">
+              <b-form-input v-model="ubicacion" required></b-form-input>
+            </b-form-group>
+            <b-form-group label="foto">
+              <b-form-input v-model="foto" required></b-form-input>
+            </b-form-group>
+            <b-form-group label="Categoría">
+              <b-form-select v-model="categoria" :options="categorias"></b-form-select>
+            </b-form-group>
+            <b-button variant="primary" @click="submitForm">Enviar</b-button>
+          </b-col>
+        </b-row>
+      </b-container>
+    </div>
+</template>
   
   <script>
   import axios from 'axios';

@@ -37,7 +37,7 @@
                     <b-card-text>
                       {{ institucion.descripcion }}
                     </b-card-text>
-                    <b-button href="#" variant="primary">Go somewhere</b-button>
+                    <b-button href="#" variant="primary">Ver reuniones</b-button>
                   </b-card-body>
                 </b-col>
               </b-row>
@@ -65,14 +65,11 @@
               </b-col>
             </b-row>
           </b-card>
-        </div>
-
-        <div class="fixed-bottom d-flex justify-content-end mr-3 mb-3">
-          <b-button pill variant="info" class="ml-auto" to="/institucion" @click="navigateTo">Button</b-button>
         </div> -->
 
-
-
+        <div class="fixed-bottom d-flex justify-content-end mr-3 mb-3">
+          <b-button pill variant="info" class="ml-auto" to="/institucion" @click="navigateTo">Crear Nuevo</b-button>
+        </div>
 
       </div>
         
@@ -160,11 +157,6 @@
       const script2 = document.createElement('script');
       script2.src = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js';
       document.body.appendChild(script2);
-
-      const link3 = document.createElement('link');
-      link3.rel = 'stylesheet';
-      link3.href = 'styles.css';
-      document.head.appendChild(link3);
 
     }
   }

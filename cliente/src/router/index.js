@@ -20,7 +20,7 @@ Vue.use(VueRouter)
   {
     path: '/cronograma',
     name: 'cronograma',
-    component: () => import('../components/cronogramaComponent.vue')
+    component: () => import('../components/cronograma2Component.vue')
   },
   {
     path: '/contacto',
