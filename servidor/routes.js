@@ -35,6 +35,25 @@ const db = require('./bdd');
         });
     });
 
+    router.post('/guardar-reunion', (req, res) => {
+      console.log("Estamos en guardar reunion");
+      res.header('Access-Control-Allow-Origin', '*');
+        // Obtener los datos del cuerpo de la solicitud
+        //const { id, titulo, descripcion, fecha, hora, cant_personas, empresa_id } = req.body;
+        const { titulo, descripcion, plataforma, fecha, hora, link_reunion, cant_personas, empresa_id} = req.body;
+        console.log(req.body);
+        // Insertar los datos en la tabla correspondiente en la base de datos
+        const sql = `INSERT INTO reunion (id, titulo, descripcion, plataforma, fecha, hora, link_reunion, cant_personas, empresa_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+        db.query(sql, [null, titulo, descripcion, plataforma, fecha, hora, link_reunion, cant_personas, empresa_id], (err, result) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error al guardar los datos en la base de datos');
+        } else {
+            res.status(200).send('Datos guardados correctamente');
+        }
+        });
+    });
+
     router.get('/api/reunion', (req, res) => {
       db.query('SELECT r.id, r.titulo, r.descripcion, r.fecha, r.hora, r.cant_personas, e.nombre as nombre_institucion FROM reunion r INNER JOIN empresa e ON r.empresa_id = e.id;', (error, results, fields) => {
         if (error) {
@@ -67,16 +86,5 @@ const db = require('./bdd');
         res.send(results)
       })
     })
-
-/*     router.get('/api/nombreinstitucion', (req, res) => {
-      db.query('SELECT a.nombre FROM empresa a, reunion b WHERE a.id=b.empresa_id', (error, results, fields) => {
-        if (error) {
-          console.log(error)
-          return res.status(500).send(error)
-        }
-        res.header('Access-Control-Allow-Origin', '*');
-        res.send(results)
-      })
-    }) */
 
 module.exports = router;

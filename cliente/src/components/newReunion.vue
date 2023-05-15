@@ -16,10 +16,10 @@
               <b-form-select v-model="institucion" :options="instituciones"></b-form-select>
             </b-form-group>
             <b-form-group label="Plataforma:">
-              <b-form-select v-model="plataforma" :options="plataformas"></b-form-select>
+              <b-form-select v-model="plataforma" :options="plataformas" value-field="value" text-field="text"></b-form-select>
             </b-form-group>
             <b-form-group label="Link de la reunion:">
-              <b-form-input v-model="link" required></b-form-input>
+              <b-form-input v-model="link_reunion" required></b-form-input>
             </b-form-group>
             <div>
                 <label for="example-datepicker">Escoge una fecha:</label>
@@ -48,7 +48,7 @@
       return {
         titulo: '',
         descripcion: '',
-        link: '',
+        link_reunion: '',
         fecha: '',
         hora: '',
         cant_personas: '',
@@ -56,13 +56,14 @@
         instituciones: [],
         plataforma: '',
         plataformas: [
-          { text: 'Zoom'},
-          { text: 'Google Meet'},
-          { text: 'Microsoft Teams'},
-          { text: 'Cisco Webex'},
-          { text: 'Jitsi Meet'},
-          { text: 'Skype'},
-          { text: 'Otra'},],
+            { value: 'Zoom', text: 'Zoom' },
+            { value: 'Google Meet', text: 'Google Meet' },
+            { value: 'Microsoft Teams', text: 'Microsoft Teams' },
+            { value: 'Cisco Webex', text: 'Cisco Webex' },
+            { value: 'Jitsi Meet', text: 'Jitsi Meet' },
+            { value: 'Skype', text: 'Skype' },
+            { value: 'Otra', text: 'Otra' },
+        ],
         };
     },
     created() {
@@ -80,15 +81,18 @@
         submitForm() {
             // Crear un objeto con los datos del formulario
             const data = {
-            nombre: this.nombre,
+            titulo: this.titulo,
             descripcion: this.descripcion,
-            ubicacion: this.ubicacion,
-            foto: this.foto,
-            categoria: this.categoria,
+            link_reunion: this.link_reunion,
+            fecha: this.fecha,
+            hora: this.hora,
+            cant_personas: this.cant_personas,
+            empresa_id: this.institucion,
+            plataforma: this.plataforma,
             };
 
             // Enviar los datos al servidor usando Axios
-            axios.post('http://localhost:3001/guardar-datos', data)
+            axios.post('http://localhost:3001/guardar-reunion', data)
             .then(response => {
                 console.log(response.data);
                 // Realizar alguna acción después de guardar los datos
