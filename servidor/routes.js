@@ -46,4 +46,15 @@ const db = require('./bdd');
       })
     })
 
+    router.get('/api/categorias', (req, res) => {
+      db.query('SELECT id, nombre FROM sector', (error, results, fields) => {
+        if (error) {
+          console.log(error)
+          return res.status(500).send(error)
+        }
+        res.header('Access-Control-Allow-Origin', '*');
+        res.send(results)
+      })
+    })
+
 module.exports = router;

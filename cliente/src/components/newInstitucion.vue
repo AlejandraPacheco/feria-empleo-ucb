@@ -39,13 +39,19 @@
         ubicacion: '',
         foto: '',
         categoria: '',
-        categorias: [
-          { value: '1', text: 'Categoría 1' },
-          { value: '2', text: 'Categoría 2' },
-          { value: '3', text: 'Categoría 3' },
-          { value: '4', text: 'Categoría 4' },
-        ],
+        categorias: [],
       };
+    },
+    created() {
+      fetch('http://localhost:3001/api/categorias')
+        .then(response => response.json())
+        .then(data => {
+          this.categorias = data.map(categoria => ({
+            value: categoria.id,
+            text: categoria.nombre,
+          }));
+        })
+        .catch(error => console.error(error));
     },
     methods: {
         submitForm() {
