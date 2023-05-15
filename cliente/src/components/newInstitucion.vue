@@ -68,7 +68,13 @@
             axios.post('http://localhost:3001/guardar-datos', data)
             .then(response => {
                 console.log(response.data);
+                alert("Institucion registrada correctamente");
                 // Realizar alguna acción después de guardar los datos
+                this.$set(this, 'nombre', '');
+                this.$set(this, 'descripcion', '');
+                this.$set(this, 'ubicacion', '');
+                this.$set(this, 'foto', '');
+                this.$set(this, 'categoria', null); 
             })
             .catch(error => {
                 console.error(error);

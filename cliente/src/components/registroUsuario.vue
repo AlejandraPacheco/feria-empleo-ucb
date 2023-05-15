@@ -108,6 +108,17 @@
                     .then(response => {
                         console.log(response.data);
                         // Realizar alguna acción después de guardar los datos
+
+                        // Mostrar la alerta "Usuario registrado correctamente"
+                        alert("Usuario registrado correctamente");
+
+                        //Setear los campos del formulario en blanco
+                        // Setear los campos
+                        this.$set(this, 'nombre', '');
+                        this.$set(this, 'ci', '');
+                        this.$set(this, 'carrera', '');
+                        this.$set(this, 'celular', '');
+                        this.$set(this, 'email', '');
                     })
                     .catch(error => {
                         console.error(error);
@@ -125,28 +136,31 @@
                 // Actualizamos la cantidad de personas en la reunión
                 axios.get(`http://localhost:3001/api/reunion/${id}`)
                     .then(response => {
+                        const id = this.$route.params.id;
                         console.log('Este es el id de la reunion antes del put: '+id);
                         console.log('Estamos en el PUT');
                         const data = response.data;
                         console.log(data);
+                        const cupos = data[0].cant_personas - 1;
+                        const cant_personas = '';
+                        console.log('Cantidad de cupos disponibles: '+cupos);
 
                         // Verificar si la propiedad "cant_personas" existe y tiene un valor válido
-                        if ('cant_personas' in data && data.cant_personas !== null) {
-                        const cant_personas = data.cant_personas;
-                        console.log(cant_personas);
-                        const data_reunion = {
-                            cant_personas: cant_personas - 1
-                        };
-                        console.log('Restando 1: ' + data_reunion);
+                        if (cupos !== null) {
+                            const data = {
+                                id: id,
+                                cant_personas: cupos
+                            }
+                        console.log('Restando 1: ' + cant_personas);
 
-                        axios.put(`http://localhost:3001/api/reunion/${id}`, data_reunion)
+                        axios.put(`http://localhost:3001/api/reunion/${id}`, data)
                             .then(response => {
                             console.log(response.data);
                             // Realizar alguna acción después de guardar los datos
                             })
                             .catch(error => {
                             console.error(error);
-                            console.log(data_reunion);
+                            console.log(data);
                             // Realizar alguna acción si ocurre un error al guardar los datos
                             });
                         } else {
@@ -157,19 +171,6 @@
                         console.log(error);
                     });
 
-
-
-            // // Registramos reunion_id y usuario_id en la tabla reunion_usuario
-            // axios.post('http://localhost:3001/guardar-reunionusuario', data_usuario)
-            // .then(response => {
-            //     console.log(response.data_usuario);
-            //     // Realizar alguna acción después de guardar los datos
-            // })
-            // .catch(error => {
-            //     console.error(error);
-            //     console.log(data_usuario);
-            //     // Realizar alguna acción si ocurre un error al guardar los datos
-            // });
         }
     }
   };

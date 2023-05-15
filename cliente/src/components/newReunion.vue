@@ -96,6 +96,7 @@
             .then(response => {
                 console.log(response.data);
                 // Realizar alguna acción después de guardar los datos
+                alert("Reunion registrada correctamente");
             })
             .catch(error => {
                 console.error(error);
