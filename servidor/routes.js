@@ -54,6 +54,19 @@ const db = require('./bdd');
         });
     });
 
+    router.get('/api/reunion/:id', (req, res) => {
+      const id = req.params.id;
+      db.query('SELECT r.id, r.titulo, r.descripcion, r.fecha, r.hora, r.cant_personas, e.nombre as nombre_institucion FROM reunion r INNER JOIN empresa e ON r.empresa_id = e.id AND empresa_id = ?', [id], (error, results, fields) => {
+        if (error) {
+          console.log(error);
+          return res.status(500).send(error);
+        }
+        res.header('Access-Control-Allow-Origin', '*');
+        res.send(results);
+      });
+    });
+    
+
     router.get('/api/reunion', (req, res) => {
       db.query('SELECT r.id, r.titulo, r.descripcion, r.fecha, r.hora, r.cant_personas, e.nombre as nombre_institucion FROM reunion r INNER JOIN empresa e ON r.empresa_id = e.id;', (error, results, fields) => {
         if (error) {

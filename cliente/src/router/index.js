@@ -18,6 +18,11 @@ Vue.use(VueRouter)
       component: () => import('../components/newInstitucion.vue')
     },
     {
+      path: '/reuniones/:id',
+      name: 'reuniones',
+      component: () => import('../components/reunionInstitucion.vue')
+    },
+    {
       path: '/reunion',
       name: 'reunion',
       component: () => import('../components/newReunion.vue')

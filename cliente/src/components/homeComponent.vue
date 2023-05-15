@@ -5,24 +5,6 @@
       <div class="contenedor-pasteles">
         <h1 class="titulo-productos">INSTITUCIONES</h1>
 
-        <!-- <div>
-          <b-card
-            title="Card Title"
-            img-src="https://i.ibb.co/RBPs0wv/channels4-profile.jpg"
-            img-alt="bisa"
-            img-top
-            tag="article"
-            style="max-width: 20rem;"
-            class="mb-2"
-          >
-            <b-card-text>
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </b-card-text>
-
-            <b-button href="#" variant="primary">Go somewhere</b-button>
-          </b-card>
-        </div> -->
-
         <div class="row">
           <div class="col-md-6" v-for="(institucion, index) in institucion" :key="index">
             <b-card>
@@ -37,35 +19,13 @@
                     <b-card-text>
                       {{ institucion.descripcion }}
                     </b-card-text>
-                    <b-button href="#" variant="primary">Ver reuniones</b-button>
+                    <b-button @click="verReuniones(institucion.id)" variant="primary">Ver reuniones</b-button>
                   </b-card-body>
                 </b-col>
               </b-row>
             </b-card>
           </div>
         </div>
-
-
-
-        <!-- <div class="row d-flex flex-wrap justify-content-between mx-5">
-          <b-card v-for="(institucion, index) in institucion" :key="index" no-body class="col-sm-6 mb-3 mx-5 overflow-hidden" style="max-width: 540px;">
-            <b-card-title>{{ institucion.nombre }}</b-card-title>
-            <b-card-sub-title class="mb-2">{{ institucion.ubicacion }}</b-card-sub-title>
-            <b-row no-gutters>
-              <b-col>
-                <b-card-img :src="institucion.logo" alt="Image" class="rounded-0"></b-card-img>
-              </b-col>
-              <b-col>
-                <b-card-body>
-                  <b-card-text>
-                    {{ institucion.descripcion }}
-                  </b-card-text>
-                  <b-button href="#" variant="primary">Go somewhere</b-button>
-                </b-card-body>
-              </b-col>
-            </b-row>
-          </b-card>
-        </div> -->
 
         <div class="fixed-bottom d-flex justify-content-end mr-3 mb-3">
           <b-button pill variant="info" class="ml-auto" to="/institucion" @click="navigateTo">Crear Nuevo</b-button>
@@ -126,6 +86,9 @@
     methods: {
       navigateTo() {
         this.$router.push('/institucion');
+      },
+      verReuniones(id) {
+        this.$router.push({ name: 'reuniones', params: { id: id } });
       }
     },
 
