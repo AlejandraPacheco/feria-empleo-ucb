@@ -26,16 +26,11 @@
                             Cupos Disponibles: {{ reunion.cant_personas }}
                         </b-card-text>
                         <div class="d-flex justify-content-end">
-                            <b-button href="#" variant="primary">Registrarse</b-button>
+                            <b-button @click="registrarUsuario(reunion.id, reunion.cant_personas)" variant="primary">Registrarse</b-button>
                         </div>
                         </b-card>
                     </div>
                 </div>
-
-            <div class="fixed-bottom d-flex justify-content-end mr-3 mb-3">
-            <b-button pill variant="info" class="ml-auto" to="/reunion" @click="navigateTo">Crear Nuevo</b-button>
-            </div>
-
         </div>
             
         <div class="footer">
@@ -89,8 +84,8 @@
     },
 
     methods: {
-      navigateTo() {
-        this.$router.push('/reunion');
+        registrarUsuario(id, cant_personas) {
+        this.$router.push({ name: 'reunionusuario', params: { id: id, cant_personas: cant_personas } });
       }
     },
 

@@ -11,8 +11,10 @@ app.use(express.json());
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT'); // Incluye PUT en la lista de métodos permitidos
   next();
 });
+
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -25,7 +27,12 @@ const router = require('./routes');
 app.use(router);
 
 // Permitir todas las solicitudes desde cualquier origen
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000', // Reemplaza con la URL de tu cliente
+  methods: ['GET', 'PUT', 'POST'], // Especifica los métodos permitidos
+  allowedHeaders: ['Content-Type', 'Authorization'], // Especifica los encabezados permitidos
+}));
+
 
 // Inicio del servidor
 app.listen(3001, () => {

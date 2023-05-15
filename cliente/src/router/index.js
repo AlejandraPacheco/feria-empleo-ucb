@@ -23,6 +23,11 @@ Vue.use(VueRouter)
       component: () => import('../components/reunionInstitucion.vue')
     },
     {
+      path: '/reunionusuario/:id',
+      name: 'reunionusuario',
+      component: () => import('../components/registroUsuario.vue')
+    },
+    {
       path: '/reunion',
       name: 'reunion',
       component: () => import('../components/newReunion.vue')
