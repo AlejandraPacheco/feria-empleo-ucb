@@ -47,6 +47,13 @@
             link: 'https://meet.google.com/123-def',
             fecha: new Date(2023, 4, 5, 14, 0, 0) // fecha de la reunión (año, mes, día, hora, minutos, segundos)
           },
+          {
+            nombre: 'Presentacion de Proyeco',
+            cantidad_personas: 5,
+            descripcion: 'Presentación de Tecnologias Web.',
+            link: 'https://us05web.zoom.us/j/84638000819?pwd=eWhWK1M5Qm9aUUFIUTB3eGNPY0Jhdz09',
+            fecha: new Date(2023, 5, 11, 14, 0, 0) // fecha de la reunión (año, mes, día, hora, minutos, segundos)
+          },
           // más reuniones
         ]
       }

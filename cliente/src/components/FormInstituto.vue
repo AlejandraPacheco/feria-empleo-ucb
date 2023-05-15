@@ -1,4 +1,6 @@
 <template>
+    <center>
+        <h2>Registrar nueva institución</h2>
     <form>
       <label for="nombre">Nombre de la empresa</label>
       <input type="text" id="nombre" v-model="nombre">
@@ -14,6 +16,7 @@
   
       <button type="submit" @click.prevent="submitForm">Guardar</button>
     </form>
+</center>
   </template>
   
   <script>
