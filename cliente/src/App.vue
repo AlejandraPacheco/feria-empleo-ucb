@@ -2,7 +2,7 @@
 <template>
   <div class="vue-tempalte">
     <!-- Navigation -->
-    <!-- <nav class="navbar shadow bg-white rounded justify-content-between flex-nowrap flex-row fixed-top">
+    <nav class="navbar shadow bg-white rounded justify-content-between flex-nowrap flex-row fixed-top">
       <div class="container">
         <img src="https://lpz.ucb.edu.bo/wp-content/uploads/2021/10/Feria-de-empleo-final.jpg" width="140px">
         <ul class="nav navbar-nav flex-row float-right">
@@ -20,7 +20,7 @@
           </li>
         </ul>
       </div>
-    </nav> -->
+    </nav>
     <!-- Main -->
     <div class="App">
       <div class="vertical-center">
