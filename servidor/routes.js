@@ -164,4 +164,22 @@ const db = require('./bdd');
       })
     })
 
+    router.post('/login', (req, res) => {
+      const { username, password } = req.body;
+      const query = `SELECT id, username, role FROM user WHERE username = ? AND password = ?`;
+      const values = [username, password];
+      db.query(query, values, (error, results, fields) => {
+        if (error) {
+          console.log(error);
+          return res.status(500).json({ error: 'Error en el servidor' });
+        }
+        if (results.length > 0) {
+          const user = results[0];
+          res.status(200).json({ email: user.username, role: user.role });
+        } else {
+          res.status(401).json({ error: 'Credenciales inválidas' });
+        }
+      });
+    });
+
 module.exports = router;
