@@ -12,7 +12,8 @@
           <a :href="reunion.link">{{ reunion.fecha < hoy ? 'Ver Repetición' : 'Ir a la Reunión' }}</a>
         </div>
       </div>
-      
+      <br>
+      <br>
       <h2>Reuniones Nuevas</h2>
       <div v-for="(reunion, index) in reunionesNuevas" :key="index" class="tarjeta verde">
         <div class="titulo">{{ reunion.nombre }}</div>

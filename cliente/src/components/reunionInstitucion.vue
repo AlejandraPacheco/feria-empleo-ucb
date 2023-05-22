@@ -1,10 +1,10 @@
 <template>
-    <div>
-        <center>
+        <div >
+          <center>
             <div class="contenedor-pasteles">
                 <h1 class="titulo-productos">Cronograma de Reuniones</h1>
 
-                <div>
+                <div class="container">
                     <div v-for="reunion in reunion" :key="reunion.id">
                         <b-card bg-variant="dark" text-variant="white" :title="'Reunion - ' + reunion.id" style="margin: 0 100px;">
                         <b-card-text class="text-left" style="margin-left: 40px;">
@@ -31,36 +31,47 @@
                         </b-card>
                     </div>
                 </div>
-        </div>
+         </div>
             
-        <div class="footer">
-            <div class="footer-columnas">
-            <div class="columna">
-                <h3>Contacto</h3>
-                <h2>68975423</h2>
+            <div class="footer">
+                <div class="footer-columnas">
+                    <div class="columna">
+                        <h3>Contacto</h3>
+                        <h2>68975423</h2>
+                    </div>
+                    <div class="columna">
+                        <h3>Dirección</h3>
+                        <h2>San Pedro, calle Belzu #4409</h2>
+                    </div>
+                    <div class="columna">
+                        <h3>Nuestras redes</h3>
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-whatsapp"></a>
+                        <a href="#" class="fa fa-instagram"></a>
+                    </div>
+                </div>
             </div>
-            <div class="columna">
-                <h3>Dirección</h3>
-                <h2>San Pedro, calle Belzu #4409</h2>
-            </div>
-            <div class="columna">
-                <h3>Nuestras redes</h3>
-                <a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-whatsapp"></a>
-                <a href="#" class="fa fa-instagram"></a>
-            </div>
-            </div>
+            </center>
         </div>
-        </center>
-    </div>
     
-  </template>
+</template>
 
   <style>
   .card-custom {
     max-width: 540px;
     margin: 0 10px;
   }
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .contenedor-pasteles{
+    
+    text-align: center;
+  }
+  
   </style>
 
   <script>
