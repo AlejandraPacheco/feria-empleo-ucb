@@ -1,33 +1,42 @@
 <template>
     <div>
      <div>
-      <h1>Registro de usuario</h1>
+      <h1 class="fw-bolder display-4 text-center text-primary">Registro de usuario</h1>
      </div> 
-      <b-container fluid>
-        <b-row>
-          <b-col cols="12" sm="6">
-            <b-form-group label="Nombre Completo:">
-              <b-form-input v-model="nombre" required></b-form-input>
-            </b-form-group>
-            <b-form-group label="Carnet de Identidad:">
-              <b-form-input v-model="ci" required></b-form-input>
-            </b-form-group>
-            <b-form-group label="Carrera:">
-              <b-form-input v-model="carrera" required></b-form-input>
-            </b-form-group>
-            <b-form-group label="Celular:">
-              <b-form-input v-model="celular" required></b-form-input>
-            </b-form-group>
-            <b-form-group label="Correo electronico:">
-              <b-form-input v-model="email" required></b-form-input>
-            </b-form-group>
-            <b-button variant="primary" @click="submitForm">Confirmar registro</b-button>
-          </b-col>
-        </b-row>
-      </b-container>
+     <div class="container" style="background-color: rgb(224, 240, 241); color: black;">
+        <b-container fluid>
+          <b-row>
+            <b-col cols="12" sm="6">
+              <b-form-group label="Nombre Completo:" style="color: rgb(13, 13, 13); font-size: 16px; " class="label-styling fw-bold">
+                <b-form-input v-model="nombre" required></b-form-input>
+              </b-form-group>
+              <b-form-group label="Carnet de Identidad:" style="color: rgb(13, 13, 13); font-size: 16px; " class="label-styling fw-bold">
+                <b-form-input v-model="ci" required></b-form-input>
+              </b-form-group>
+              <b-form-group label="Carrera:" style="color: rgb(13, 13, 13); font-size: 16px; " class="label-styling fw-bold">
+                <b-form-input v-model="carrera" required></b-form-input>
+              </b-form-group>
+              <b-form-group label="Celular:" style="color: rgb(13, 13, 13); font-size: 16px; " class="label-styling fw-bold">
+                <b-form-input v-model="celular" required></b-form-input>
+              </b-form-group>
+              <b-form-group label="Correo electronico:" style="color: rgb(13, 13, 13); font-size: 16px; " class="label-styling fw-bold">
+                <b-form-input v-model="email" required></b-form-input>
+              </b-form-group>
+              <b-button variant="primary" @click="submitForm">Confirmar registro</b-button>
+            </b-col>
+          </b-row>
+        </b-container>
+      </div>
     </div>
 </template>
+<style>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
+}
+</style>
   <script>
   import axios from 'axios';
 
