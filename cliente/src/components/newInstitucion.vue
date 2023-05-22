@@ -1,32 +1,43 @@
 <template>
     <div>
      <div>
-      <h1>Registrar Institución</h1>
+      <h1 class="fw-bolder display-4 text-center text-primary">Registrar Institución</h1>
      </div> 
-      <b-container fluid>
-        <b-row>
-          <b-col cols="12" sm="6">
-            <b-form-group label="Nombre">
-              <b-form-input v-model="nombre" required></b-form-input>
-            </b-form-group>
-            <b-form-group label="Descripción">
-              <b-form-textarea v-model="descripcion" rows="3" required></b-form-textarea>
-            </b-form-group>
-            <b-form-group label="Ubicacion">
-              <b-form-input v-model="ubicacion" required></b-form-input>
-            </b-form-group>
-            <b-form-group label="foto">
-              <b-form-input v-model="foto" required></b-form-input>
-            </b-form-group>
-            <b-form-group label="Categoría">
-              <b-form-select v-model="categoria" :options="categorias"></b-form-select>
-            </b-form-group>
-            <b-button variant="primary" @click="submitForm">Enviar</b-button>
-          </b-col>
-        </b-row>
-      </b-container>
+     <div class="container" style="background-color: rgb(224, 240, 241); color: black;">
+        <b-container fluid>
+          <b-row>
+            <b-col cols="12" sm="6">
+              <b-form-group label="Nombre" style="color: rgb(13, 13, 13); font-size: 16px; " class="label-styling fw-bold">
+                <b-form-input v-model="nombre" required></b-form-input>
+              </b-form-group>
+              <b-form-group label="Descripción" style="color: rgb(13, 13, 13); font-size: 16px; " class="label-styling fw-bold">
+                <b-form-textarea v-model="descripcion" rows="3" required></b-form-textarea>
+              </b-form-group>
+              <b-form-group label="Ubicacion" style="color: rgb(13, 13, 13); font-size: 16px; " class="label-styling fw-bold">
+                <b-form-input v-model="ubicacion" required></b-form-input>
+              </b-form-group>
+              <b-form-group label="Foto" style="color: rgb(13, 13, 13); font-size: 16px; " class="label-styling fw-bold">
+                <b-form-input v-model="foto" required></b-form-input>
+              </b-form-group>
+              <b-form-group label="Categoría" style="color: rgb(13, 13, 13); font-size: 16px; " class="label-styling fw-bold">
+                <b-form-select v-model="categoria" :options="categorias"></b-form-select>
+              </b-form-group>
+              <b-button variant="primary" @click="submitForm">Enviar</b-button>
+            </b-col>
+          </b-row>
+        </b-container>
+      </div>
     </div>
 </template>
+
+<style>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+</style>
   
   <script>
   import axios from 'axios';
