@@ -9,6 +9,11 @@ Vue.use(VueRouter)
         // },
     {
       path: '/',
+      name: 'homeoff',
+      component: () => import('../components/HomeOff.vue')
+    },
+    {
+      path: '/home',
       name: 'home',
       component: () => import('../components/homeComponent.vue')
     },
