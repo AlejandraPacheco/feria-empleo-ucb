@@ -9,7 +9,7 @@
                 <router-link class="nav-link pr-3" to="/">Home</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="btn btn-outline-primary" to="/contacto">Contactos</router-link>
+                <router-link class="btn btn-outline-primary" to="/logincontacto">Contactos</router-link>
             </li>
             <li class="nav-item">
                 <router-link class="nav-link pr-3" to="/login">Log In</router-link>

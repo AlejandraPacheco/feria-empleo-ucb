@@ -9,7 +9,7 @@
                     <router-link class="nav-link pr-3" to="/">Home</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link class="btn btn-outline-primary" to="/contacto">Contactos</router-link>
+                    <router-link class="btn btn-outline-primary" to="/logincontacto">Contactos</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link class="nav-link pr-3" to="/login">Log In</router-link>
@@ -63,9 +63,9 @@
             const user = response.data;
             console.log(user.role);
             if (user.role === 'admin') {
-                this.$router.push('/home');
+                this.$router.push('/adminhome');
             } else if (user.role === 'user') {
-                this.$router.push('/');
+                this.$router.push('/userhome');
             } else {
                 // Redirigir a una página de error o mostrar un mensaje de error en el formulario
                 console.error('Rol de usuario inválido');

@@ -1,18 +1,18 @@
 <template>
-    <div>
-        <!-- Navigation -->
+    <div >
+                  <!-- Navigation -->
         <nav class="navbar shadow bg-white rounded justify-content-between flex-nowrap flex-row fixed-top">
         <div class="container">
             <img src="https://lpz.ucb.edu.bo/wp-content/uploads/2021/10/Feria-de-empleo-final.jpg" width="140px">
             <ul class="nav navbar-nav flex-row float-right">
             <li class="nav-item">
-                <router-link class="nav-link pr-3" to="/home">Instituciones</router-link>
+                <router-link class="nav-link pr-3" to="/userhome">Instituciones</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="btn btn-outline-primary" to="/cronograma">Cronograma</router-link>
+                <router-link class="btn btn-outline-primary" to="/usercronograma">Cronograma</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="btn btn-outline-primary" to="/contacto">Contactos</router-link>
+                <router-link class="btn btn-outline-primary" to="/usercontacto">Contactos</router-link>
             </li>
             <li class="nav-item">
                 <router-link class="nav-link pr-3" to="/login">Log In</router-link>
@@ -20,11 +20,11 @@
             </ul>
         </div>
         </nav>
-        <center>
+          <center>
             <div class="contenedor-pasteles">
                 <h1 class="titulo-productos">Cronograma de Reuniones</h1>
 
-                <div>
+                <div class="container">
                     <div v-for="reunion in reunion" :key="reunion.id">
                         <b-card bg-variant="dark" text-variant="white" :title="'Reunion - ' + reunion.id" style="margin: 0 100px;">
                         <b-card-text class="text-left" style="margin-left: 40px;">
@@ -46,91 +46,41 @@
                             Cupos Disponibles: {{ reunion.cant_personas }}
                         </b-card-text>
                         <div class="d-flex justify-content-end">
-                            <b-button href="#" variant="primary">Editar reunion</b-button>
+                            <b-button @click="registrarUsuario(reunion.id, reunion.cant_personas)" variant="primary">Registrarse</b-button>
                         </div>
                         </b-card>
                     </div>
                 </div>
-
-
-                <!-- <div class="row">
-                <div class="col-md-6" v-for="(institucion, index) in institucion" :key="index">
-                    <b-card>
-                    <b-card-title>{{ institucion.nombre }}</b-card-title>
-                    <b-card-sub-title class="mb-2">{{ institucion.ubicacion }}</b-card-sub-title>
-                    <b-row no-gutters>
-                        <b-col>
-                        <b-card-img :src="institucion.logo" alt="Image" class="rounded-0"></b-card-img>
-                        </b-col>
-                        <b-col>
-                        <b-card-body>
-                            <b-card-text>
-                            {{ institucion.descripcion }}
-                            </b-card-text>
-                            <b-button href="#" variant="primary">Ver reuniones</b-button>
-                        </b-card-body>
-                        </b-col>
-                    </b-row>
-                    </b-card>
-                </div> -->
-            <!-- </div> -->
-
-
-
-            <!-- <div class="row d-flex flex-wrap justify-content-between mx-5">
-            <b-card v-for="(institucion, index) in institucion" :key="index" no-body class="col-sm-6 mb-3 mx-5 overflow-hidden" style="max-width: 540px;">
-                <b-card-title>{{ institucion.nombre }}</b-card-title>
-                <b-card-sub-title class="mb-2">{{ institucion.ubicacion }}</b-card-sub-title>
-                <b-row no-gutters>
-                <b-col>
-                    <b-card-img :src="institucion.logo" alt="Image" class="rounded-0"></b-card-img>
-                </b-col>
-                <b-col>
-                    <b-card-body>
-                    <b-card-text>
-                        {{ institucion.descripcion }}
-                    </b-card-text>
-                    <b-button href="#" variant="primary">Go somewhere</b-button>
-                    </b-card-body>
-                </b-col>
-                </b-row>
-            </b-card>
-            </div> -->
-
-            <div class="fixed-bottom d-flex justify-content-end mr-3 mb-3">
-            <b-button pill variant="info" class="ml-auto" to="/reunion" @click="navigateTo">Crear Nuevo</b-button>
-            </div>
-
-        </div>
+         </div>
             
-        <div class="footer">
-            <div class="footer-columnas">
-            <div class="columna">
-                <h3>Contacto</h3>
-                <h2>68975423</h2>
+            <div class="footer">
+                <div class="footer-columnas">
+                    <div class="columna">
+                        <h3>Contacto</h3>
+                        <h2>68975423</h2>
+                    </div>
+                    <div class="columna">
+                        <h3>Dirección</h3>
+                        <h2>San Pedro, calle Belzu #4409</h2>
+                    </div>
+                    <div class="columna">
+                        <h3>Nuestras redes</h3>
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-whatsapp"></a>
+                        <a href="#" class="fa fa-instagram"></a>
+                    </div>
+                </div>
             </div>
-            <div class="columna">
-                <h3>Dirección</h3>
-                <h2>San Pedro, calle Belzu #4409</h2>
-            </div>
-            <div class="columna">
-                <h3>Nuestras redes</h3>
-                <a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-whatsapp"></a>
-                <a href="#" class="fa fa-instagram"></a>
-            </div>
-            </div>
-        </div>
-        </center>
+            </center>
     </div>
     
-  </template>
+</template>
 
   <style>
   .card-custom {
     max-width: 540px;
     margin: 0 10px;
-  }
+  } 
   </style>
 
   <script>
@@ -154,20 +104,24 @@
     },
 
     methods: {
-      navigateTo() {
-        this.$router.push('/reunion');
+        registrarUsuario(id, cant_personas) {
+        this.$router.push({ name: 'reunionuser', params: { id: id, cant_personas: cant_personas } });
       }
     },
 
     mounted() {
-      axios.get('http://localhost:3001/api/reunion')
-      .then(response => {
-        this.reunion = response.data
-        console.log(this.reunion)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+        const id = this.$route.params.id;
+        // Utiliza el ID para cargar las reuniones específicas de la institución
+        console.log('Este es el id: '+id);
+
+        axios.get(`http://localhost:3001/api/reunion/${id}`)
+        .then(response => {
+            this.reunion = response.data;
+            console.log(this.reunion);
+        })
+        .catch(error => {
+            console.log(error);
+        });
 
       // Agregar los scripts aquí
       const link1 = document.createElement('link');

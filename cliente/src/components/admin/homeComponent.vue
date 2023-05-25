@@ -7,13 +7,13 @@
             <img src="https://lpz.ucb.edu.bo/wp-content/uploads/2021/10/Feria-de-empleo-final.jpg" width="140px">
             <ul class="nav navbar-nav flex-row float-right">
             <li class="nav-item">
-                <router-link class="nav-link pr-3" to="/home">Instituciones</router-link>
+                <router-link class="nav-link pr-3" to="/adminhome">Instituciones</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="btn btn-outline-primary" to="/cronograma">Cronograma</router-link>
+                <router-link class="btn btn-outline-primary" to="/admincronograma">Cronograma</router-link>
             </li>
             <li class="nav-item">
-                <router-link class="btn btn-outline-primary" to="/contacto">Contactos</router-link>
+                <router-link class="btn btn-outline-primary" to="/admincontacto">Contactos</router-link>
             </li>
             <li class="nav-item">
                 <router-link class="nav-link pr-3" to="/login">Log In</router-link>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="fixed-bottom d-flex justify-content-end mr-3 mb-3">
-          <b-button pill variant="info" class="ml-auto" to="/institucion" @click="navigateTo">Crear Nuevo</b-button>
+          <b-button pill variant="info" class="ml-auto" to="/admininstitucion" @click="navigateTo">Crear Nuevo</b-button>
         </div>
 
       </div>
@@ -105,7 +105,7 @@
 
     methods: {
       navigateTo() {
-        this.$router.push('/institucion');
+        this.$router.push('/admininstitucion');
       },
       verReuniones(id) {
         this.$router.push({ name: 'reuniones', params: { id: id } });
